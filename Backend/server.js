@@ -4,6 +4,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const apiRoutes = require('./routes/api');
+const ApiRoutes = require('./routes/SignupApi');
+
 
 // Middleware
 app.use(express.json());
@@ -13,6 +15,8 @@ app.get('/', (req, res) => {
     res.send('Hello,s MEAN Stack!');
 });
 app.use('/Login', apiRoutes);
+
+app.use('/Signup',ApiRoutes)
 
 
 // /////////////////////////////////////////////

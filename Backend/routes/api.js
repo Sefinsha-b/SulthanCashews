@@ -3,7 +3,7 @@ const router = express.Router();
 const Note = require('../models/note');
 
 // Create a new note
-router.post('/notes', async (req, res) => {
+router.post('/Log_in', async (req, res) => {
     const { Email, Password } = req.body;
 
     try {
@@ -11,22 +11,22 @@ router.post('/notes', async (req, res) => {
         await note.save();
         res.status(201).json(note);
     } catch (error) {
-        res.status(400).json({ message: 'Error creating note' });
+        res.status(400).json({ message: 'Error creating Loginpage' });
     }
 });
 
 // Get all notes
-router.get('/notes', async (req, res) => {
+router.get('/Log_in', async (req, res) => {
     try {
         const notes = await Note.find();
         res.json(notes);
     } catch (error) {
-        res.status(500).json({ message: 'Error fetching notes' });
+        res.status(500).json({ message: 'Error fetching Loginpage' });
     }
 });
 
 // 
-router.put('/notes/:id', async (req, res) => {
+router.put('/Log_in/:id', async (req, res) => {
     const noteId = req.params.id;
     const updatedData = req.body; // Assuming your request body contains the updated data
 
@@ -40,10 +40,10 @@ router.put('/notes/:id', async (req, res) => {
         if (updatedNote) {
             res.json(updatedNote);
         } else {
-            res.status(404).json({ message: 'Note not found' });
+            res.status(404).json({ message: 'Loginpage not found' });
         }
     } catch (error) {
-        res.status(500).json({ message: 'Error updating note' });
+        res.status(500).json({ message: 'Error updating Loginpage' });
     }
 });
 // 
